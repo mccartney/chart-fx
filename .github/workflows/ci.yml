@@ -32,7 +32,7 @@ jobs:
           java-version: ${{ matrix.java }}
           distribution: 'adopt'
       - name: Test with Maven
-        run: mvn -Dgpg.skip=true --no-transfer-progress --batch-mode -Drevision=${REVISION} -Dchangelist=${CHANGELIST} package
+        run: mvn -Dgpg.skip=true --no-transfer-progress --batch-mode package
       - name: CodeCov coverage Reporter
         uses: codecov/codecov-action@v1
         if: matrix.java == env.JAVA_REFERENCE_VERSION
